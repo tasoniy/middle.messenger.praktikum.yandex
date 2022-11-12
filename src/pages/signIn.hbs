@@ -1,0 +1,24 @@
+---
+title: "Вход"
+command: "Авторизоваться"
+inputs:
+  - label: "Логин"
+    type: "text"
+  - label: "Пароль"
+    type: "password"
+link-text: "Нет аккаунта?"
+route: "./signUp.hbs"
+---
+{{!< base}}
+
+<form class="form">
+  {{> title title-class="form__title"}}
+  {{#each inputs}}
+    {{>input}}
+  {{/each}}
+  <div class="form__button-wrap">
+    {{>button class="form__button-auth"}}
+    {{> link  link-class="form__link"}}
+  </div> 
+</form> 
+
