@@ -21,9 +21,16 @@
     "@parcel/transformer-sass": "^2.7.0",
     "parcel": "^2.7.0"
   },
-  
   "dependencies": {
     "express": "^4.18.2",
     "handlebars": "^4.7.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tasoniy/middle.messenger.praktikum.yandex.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tasoniy/middle.messenger.praktikum.yandex/issues"
+  },
+  "homepage": "https://github.com/tasoniy/middle.messenger.praktikum.yandex#readme"
 }
