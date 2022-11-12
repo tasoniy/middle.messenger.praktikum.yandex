@@ -9,3 +9,6 @@ npm run start - запуск запуск продакшен-сборки на l
 
 ## Макет figma: 
 https://www.figma.com/file/24EUnEHGEDNLdOcxg7ULwV/Chat?node-id=1%3A537
+
+## Netlify
+https://bright-figolla-ecb79d.netlify.app
