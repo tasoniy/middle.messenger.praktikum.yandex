@@ -10,3 +10,4 @@ app.use(express.static(path.resolve(__dirname, 'dist')));
 app.listen(PORT, () => {
   console.log(`Listen port: ${PORT}`);
 });
+

@@ -138,7 +138,7 @@ li {
   }
 
   &__form::before {
-    content: url('./static/search.png');
+    content: url('../static/search.png');
     position: relative;
     top: 2px;
   }
@@ -459,3 +459,4 @@ li {
     margin-top: 12px;
   }
 }
+
