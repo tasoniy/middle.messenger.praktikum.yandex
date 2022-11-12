@@ -6,7 +6,7 @@
   },
   "description": "yandex practicum project modul 1 (messenger)",
   "scripts": {
-    "dev": "parcel src/pages/index.hbs --no-cache",
+    "dev": "parcel src/pages/index.hbs --no-cache --open",
     "build": "parcel build src/pages/index.hbs --no-cache",
     "start": " npm run build && node ./server.js"
   },
