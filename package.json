@@ -18,7 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "@anikin/parcel-transformer-handlebars": "1.0.9",
-    "@parcel/transformer-sass": "2.7.0",
+    "@parcel/transformer-sass": "2.8.0",
     "parcel": "2.8.0"
   },
   "dependencies": {
