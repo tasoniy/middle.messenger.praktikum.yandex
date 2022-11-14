@@ -1,0 +1,26 @@
+---
+links:
+  - link-text: "Chats"
+    route: "./chats.hbs"
+  - link-text: "Sign in"
+    route: "./signIn.hbs"
+  - link-text: "Sign up"
+    route: "./signUp.hbs"
+  - link-text: "Error client"
+    route: "./errorClient.hbs"
+  - link-text: "Error server"
+    route: "./errorServer.hbs"
+  - link-text: "User settings"
+    route: "./userSettings.hbs"
+---
+
+{{!< base}}
+<div class="index-wrap">
+  <nav>
+    <ul class="index-wrap__links-list">
+      {{#each links}}
+      <li class="index-wrap__links-list__item">{{> link}}</li>
+      {{/each}}
+    </ul>
+  </nav>
+</div>

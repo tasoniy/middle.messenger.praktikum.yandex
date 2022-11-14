@@ -1,0 +1,42 @@
+---
+title: "Регистрация"
+command: "Зарегитрироваться"
+inputs:
+  - label: "Почта"
+    type: "email"
+    name: "email"
+  - label: "Логин"
+    type: "text" 
+    name: "login"
+  - label: "Имя"
+    type: "text"
+    name: "first_name"
+  - label: "Фамилия"
+    type: "text"
+    name: "second_name"
+  - label: "Телефон"
+    type: "tel"
+    name: "phone"
+  - label: "Пароль"
+    type: "password"
+    name: "password"
+  - label: "Пароль еще раз"
+    type: "password"
+    name: "password"
+link-text: "Войти"
+route: "./signIn.hbs"
+---
+
+{{!< base}}
+
+<form class="form">
+  {{> title title-class="form__title"}}
+  {{#each inputs}}
+    {{>input}}
+  {{/each}}
+  <div class="form__button-wrap">
+    {{>button class="form__button-auth"}}
+    {{> link link-class="form__link"}}
+  </div> 
+</form> 
+
