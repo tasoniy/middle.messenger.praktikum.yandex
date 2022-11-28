@@ -6,35 +6,35 @@ export class EventBus<
   Args extends Record<MapInterface<E>, any[]> = Record<string, any[]>
 > {
 
-  private readonly listeners: {
+	private readonly listeners: {
     [K in MapInterface<E>]?:Handler<Args[K]>[]
   } = {};
 
   on<Event extends MapInterface<E>>(event: Event, callback : Handler<Args[Event]>) {
-    if (!this.listeners[event]) {
-      this.listeners[event] = []; 
-    }
+		if (!this.listeners[event]) {
+			this.listeners[event] = []; 
+		}
 
-    this.listeners[event]?.push(callback)
-  }
+		this.listeners[event]?.push(callback);
+	}
 
-  off<Event extends MapInterface<E>>(event: Event, callback : Handler<Args[Event]>) {
-    if (!this.listeners[event]) {
-      throw new Error(`No event: ${event}`);
-    }
+	off<Event extends MapInterface<E>>(event: Event, callback : Handler<Args[Event]>) {
+		if (!this.listeners[event]) {
+			throw new Error(`No event: ${event}`);
+		}
 
-    this.listeners[event] = this.listeners[event]!.filter(
-      listener => listener !== callback
-    );
-  }
+		this.listeners[event] = this.listeners[event]!.filter(
+			listener => listener !== callback
+		);
+	}
 
-  emit<Event extends MapInterface<E>>(event: Event, ...args: Args[Event]) {
-    if (!this.listeners[event]) {
-      throw new Error(`No event: ${event}`);
-    }
+	emit<Event extends MapInterface<E>>(event: Event, ...args: Args[Event]) {
+		if (!this.listeners[event]) {
+			throw new Error(`No event: ${event}`);
+		}
 
     this.listeners[event]!.forEach(
-      listener => listener(...args)
+    	listener => listener(...args)
     );
-  }    
+	}    
 }
