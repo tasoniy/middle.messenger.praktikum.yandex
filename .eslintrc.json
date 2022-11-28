@@ -4,6 +4,7 @@
 		"es2021": true
 	},
 	"extends": [
+		"airbnb",
 		"eslint:recommended",
 		"plugin:@typescript-eslint/recommended"
 	],
@@ -19,6 +20,11 @@
 	],
 	"rules": {
 		"no-var":"error",
+		"allowIndentationTabs": true,
+		"max-len": [
+			"error", 
+			{ "code": 80}
+		],
 		"indent": [
 			"error",
 			"tab"
