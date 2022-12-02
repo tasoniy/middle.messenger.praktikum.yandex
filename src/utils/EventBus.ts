@@ -3,7 +3,7 @@ class EventBus {
 		Array<(...args: unknown[]) => void>
   > = {};
 
-	on(event: string, callback: () => void) {
+	public on(event: string, callback: () => void) {
 		if (!this.listeners[event]) {
 			this.listeners[event] = [];
 		}
@@ -11,9 +11,10 @@ class EventBus {
 		this.listeners[event].push(callback);
 	}
 
-	off(event: string, callback: () => void) {
+	public off(event: string, callback: () => void) {
 		if (!this.listeners[event]) {
-			throw new Error(`Нет события: ${event}`);
+			// throw new Error(`Нет события: ${event}`);
+			return;
 		}
 
 		this.listeners[event] = this.listeners[event].filter(
@@ -21,7 +22,7 @@ class EventBus {
 		);
 	}
 
-	emit(event: string, ...args: unknown[]) {
+	public emit(event: string, ...args: unknown[]) {
 		if (!this.listeners[event]) {
 			// throw new Error(`Нет события: ${event}`);
 			return;
@@ -32,4 +33,5 @@ class EventBus {
 		});
 	}
 }
+
 export default EventBus;

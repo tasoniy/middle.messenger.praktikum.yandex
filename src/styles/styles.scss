@@ -1,0 +1,68 @@
+@import "../components/Button/button.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
+$blue: #3369F3;
+$lightBlue: #E4EDFD;
+$lightGrey: #EFEFEF;
+$darkGrey: #999999;
+$black: #1E1E1E;
+$darkWhite: #FBFBFB;
+$redColor: #FF2F2F;
+$mainFont: 'Inter', sans-serif;
+$border: 1px solid  #EAEAEA;
+
+@mixin blueFill {
+  background-color: #3369F3;
+  color: #FFFFFF;
+}
+
+@mixin text($size, $color) {
+  font-family: $mainFont;
+  font-size: $size;
+  color: $color;
+}
+
+@mixin column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin reset {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin size($width, $height){
+  width: $width;
+  height: $height;
+}
+
+html,
+body {
+  @include size(100%, 100%);
+  @include reset;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  @include reset;
+}
+
+input {
+  outline: none;
+  border:none;
+}
+
+li {
+  list-style: none;
+}
+
+.main {
+  @include size(100%, 100%);
+  box-sizing: border-box;
+}
