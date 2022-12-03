@@ -12,12 +12,11 @@
 
 import ErrorClient from "./pages/ErrorClient/errorClient";
 import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 import { renderDOM } from "./utils/renderDOM";
 
 // document.addEventListener("DOMContentLoaded", () => {
-//   const signUpPage = new SignUp({
-//     buttonLabel:"Dont click"
-//   });
+//   const signUpPage = new SignUp();
 
 //   renderDOM("#app", signUpPage);
 // })
@@ -26,11 +25,12 @@ const path = document.location.pathname;
 
 switch(path) {
   case "/":
-    renderDOM("#app", new ErrorClient())
+    renderDOM("#app", new SignUp())
     break;
   case "/signUp":
-    renderDOM("#app", new SignUp({
-      buttonLabel:"Dont click"
-    }))
+    renderDOM("#app", new SignUp())
     break;
+  case "/signIn":
+      renderDOM("#app", new SignIn())
+      break;
 }

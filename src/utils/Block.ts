@@ -186,39 +186,85 @@ class Block {
     this.getContent()!.style.display = "none";
   }
 
-  protected compile(template: (context: Record<string, unknown>) => string, context: Record<string, unknown>) {
-  
-    const fragment = this._createDocumentElement("template") as HTMLTemplateElement;
+  protected compile(template:(context: Record<string, unknown>) => string, context: Record<string, unknown>) {
+    const contextAndStubs = { ...context };
 
-    Object.entries(this.children).forEach(([key, child]) => {
-      if (Array.isArray(child)) {
-        context[key] = child.map((ch => `<div data-id=id-"${ch.id}"></div>`));
-
+    Object.entries(this.children).forEach(([name, component]) => {
+      if (Array.isArray(component)) {
+        component.forEach((val) => {
+          if (!contextAndStubs[name]) {
+            contextAndStubs[name] = `<div data-id='${val.id}'></div>`;
+          } else {
+            contextAndStubs[
+              name
+            ] = `${contextAndStubs[name]}<div data-id='${val.id}'></div>`;
+          }
+        });
         return;
       }
 
-      context[key] = ` <div data-id="id-${child.id}"></div>`
-    })
-  
-    const htmlString = template(context);
-    fragment.innerHTML = htmlString;
+      contextAndStubs[name] = `<div data-id='${component.id}'></div>`;
+    });
 
-    Object.entries(this.children).forEach(([key, child]) => {
-      if (Array.isArray(child)) {
-        context[key] = child.map((ch => `<div data-id=id-"${ch.id}"></div>`));
+    const html = template(contextAndStubs);
 
-        return;
+    const temp = document.createElement("template");
+
+    temp.innerHTML = html;
+
+    Object.entries(this.children).forEach(([_, component]) => {
+      let stub;
+      if (Array.isArray(component)) {
+        component.forEach((val) => {
+          stub = temp.content.querySelector(`[data-id='${val.id}']`);
+          if (!stub) {
+            return;
+          }
+
+          stub.replaceWith(val.getContent()!);
+        });
+      } else {
+        stub = temp.content.querySelector(`[data-id='${component.id}']`);
+        if (!stub) {
+          return;
+        }
+
+        stub.replaceWith(component.getContent()!);
       }
+    });
 
-      const stub = fragment.content.querySelector(`[data-id="id-${child.id}"]`);
+    return temp.content;
+  //   const fragment = this._createDocumentElement("template") as HTMLTemplateElement;
 
-      if (!stub) return;
+  //   Object.entries(this.children).forEach(([key, child]) => {
+  //     if (Array.isArray(child)) {
+  //       context[key] = child.map((ch => `<div data-id=id-"${ch.id}"></div>`));
 
-      stub.replaceWith(child.getContent()!);
+  //       return;
+  //     }
 
-    })
+  //     context[key] = ` <div data-id="id-${child.id}"></div>`
+  //   })
+  
+  //   const htmlString = template(context);
+  //   fragment.innerHTML = htmlString;
 
-    return fragment.content
+  //   Object.entries(this.children).forEach(([key, child]) => {
+  //     if (Array.isArray(child)) {
+  //       context[key] = child.map((ch => `<div data-id=id-"${ch.id}"></div>`));
+
+  //       return;
+  //     }
+
+  //     const stub = fragment.content.querySelector(`[data-id="id-${child.id}"]`);
+
+  //     if (!stub) return;
+
+  //     stub.replaceWith(child.getContent()!);
+
+  //   })
+
+  //   return fragment.content
   }
 }
 

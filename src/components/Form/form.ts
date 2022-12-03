@@ -2,15 +2,17 @@ import Block from "../../utils/Block";
 import template from "./form.hbs";
 
 interface FormProps {
-  title: string,
   inputs: Block[],
+  button: Block,
+  link: Block,
+  title?: string,
   class?: string,
   events?: {
     submitForm: (event: Event) => void;
   }
 }
 
-export class Button extends Block {
+export class Form extends Block {
   constructor(props:FormProps) {
     super(props); 
   }
@@ -18,8 +20,4 @@ export class Button extends Block {
   render() {
     return this.compile(template, { ...this.props });
   }
-
-  // protected componentDidUpdate(oldProps: any, newProps: any): boolean {
-  //   return oldProps.prop !== newProps.prop;
-  // }
 }

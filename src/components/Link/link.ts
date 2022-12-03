@@ -6,7 +6,6 @@ interface LinkProps {
   route: string,
   class?: string,
 }
-
 export class Link extends Block {
   constructor(props: LinkProps) {
     super(props); 
