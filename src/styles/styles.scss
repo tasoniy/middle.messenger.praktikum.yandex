@@ -1,47 +1,17 @@
-@import "../components/Button/button.scss";
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+@import "./mixins.scss";
+@import "./variables.scss";
+@import "../components/Button/button.scss";
+@import "../components/Form/form.scss";
+@import "../components/Input/input.scss";
 
-$blue: #3369F3;
-$lightBlue: #E4EDFD;
-$lightGrey: #EFEFEF;
-$darkGrey: #999999;
-$black: #1E1E1E;
-$darkWhite: #FBFBFB;
-$redColor: #FF2F2F;
-$mainFont: 'Inter', sans-serif;
-$border: 1px solid  #EAEAEA;
-
-@mixin blueFill {
-  background-color: #3369F3;
-  color: #FFFFFF;
-}
-
-@mixin text($size, $color) {
-  font-family: $mainFont;
-  font-size: $size;
-  color: $color;
-}
-
-@mixin column {
-  display: flex;
-  flex-direction: column;
-}
-
-@mixin reset {
-  margin: 0;
-  padding: 0;
-}
-
-@mixin size($width, $height){
-  width: $width;
-  height: $height;
-}
+@import "../pages/SignUp/signUp.scss";
 
 html,
 body {
-  @include size(100%, 100%);
+  height: 100vh;
   @include reset;
+  font-family: "Inter", sans-serif;
 }
 
 a {
@@ -51,11 +21,6 @@ a {
 
 ul {
   @include reset;
-}
-
-input {
-  outline: none;
-  border:none;
 }
 
 li {

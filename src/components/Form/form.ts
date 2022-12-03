@@ -4,9 +4,9 @@ import template from "./form.hbs";
 interface FormProps {
   inputs: Block[],
   button: Block,
-  link: Block,
+  link?: Block,
   title?: string,
-  class?: string,
+  formClass?: string,
   events?: {
     submitForm: (event: Event) => void;
   }

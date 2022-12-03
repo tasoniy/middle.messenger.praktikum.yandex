@@ -1,0 +1,16 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.auth-form {
+  @include column;
+  &__input{
+    width:100%;
+    @include text(13px, $black);
+    border-bottom: $border;
+  }
+
+  &__input::placeholder {
+    font-size: 9px;
+    opacity: 0.5;
+  }
+}

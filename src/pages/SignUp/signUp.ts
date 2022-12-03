@@ -46,22 +46,30 @@ export class SignUp extends Block {
           value:"",
         }),
         new Input({
-          label: "Логин",
-          name: "login",
-          type: "text",
-          placeholder: "mylogin",
+          label: "Пароль",
+          name: "password",
+          type: "password",
+          placeholder: "password",
+          value:"",
+        }),
+        new Input({
+          label: "Пароль еще раз",
+          name: "password",
+          type: "password",
+          placeholder: "password",
           value:"",
         }),
       ],
-      button: new Button({
-        label: "Зарегистрироваться",
-        type: "submit"
-      }),
       link: new Link({
         text: "Войти",
         route: "./signIn"
       }),
-      title: "Регистрация"
+      button: new Button({
+        label: "Зарегистрироваться",
+        type: "submit"
+      }),
+      title: "Регистрация",
+      formClass: "auth-form"
     })
   }
 

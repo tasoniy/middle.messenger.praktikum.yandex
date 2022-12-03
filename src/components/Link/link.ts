@@ -11,10 +11,9 @@ export class Link extends Block {
     super(props); 
   }
 
-  render() {
-    return this.compile(template, { ...this.props });
-  }
-
+protected render(): DocumentFragment {
+  return this.compile(template, { ...this.props });
+}
   // protected componentDidUpdate(oldProps: any, newProps: any): boolean {
   //   return oldProps.prop !== newProps.prop;
   // }

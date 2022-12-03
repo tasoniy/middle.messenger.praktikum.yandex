@@ -7,7 +7,6 @@ import Link from "../../components/Link";
 
 export class SignIn extends Block {
   protected initChildren() {
-
     this.children.form = new Form ({
       inputs: [ 
         new Input({
@@ -35,8 +34,8 @@ export class SignIn extends Block {
         route: "./signUp"
       }),
       title: "Вход",
+      formClass: "auth-form"
     })
-    
   }
 
   protected componentDidUpdate(oldProps: any, newProps: any): boolean {
