@@ -4,7 +4,7 @@ import template from "./link.hbs";
 interface LinkProps {
   text: string,
   route: string,
-  class?: string,
+  linkClass?: string,
 }
 export class Link extends Block {
   constructor(props: LinkProps) {

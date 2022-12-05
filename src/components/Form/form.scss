@@ -1,3 +1,7 @@
+@import "../../styles/variables.scss";
+@import "../../styles/mixins.scss";
+
+
 .form {
   align-items: center;
   border-radius: 12px;
@@ -7,4 +11,9 @@
   width: 30%;
   margin:  60px auto;
   position: relative;
+
+  &__title {
+    @include text(20px, $black);
+    margin-bottom: 40px;
+  }
 }  

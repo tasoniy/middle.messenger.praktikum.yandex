@@ -27,11 +27,13 @@ export class SignIn extends Block {
       ],
       button: new Button({
         label: "Авторизоваться",
-        type: "submit"
+        type: "submit",
+        buttonClass: "auth-form__button"
       }),
       link: new Link({
         text: "Нет аккаунта?",
-        route: "./signUp"
+        route: "./signUp",
+        linkClass: "auth-form__link"
       }),
       title: "Вход",
       formClass: "auth-form"

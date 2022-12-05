@@ -4,7 +4,7 @@ import template from "./button.hbs";
 interface ButtonProps {
   label: string,
   type?: string,
-  class?: string,
+  buttonClass?: string,
   events?: {
     click?: () => void;
   }

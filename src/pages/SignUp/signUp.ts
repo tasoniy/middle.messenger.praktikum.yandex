@@ -62,11 +62,13 @@ export class SignUp extends Block {
       ],
       link: new Link({
         text: "Войти",
-        route: "./signIn"
+        route: "./signIn",
+        linkClass: "auth-form__link"
       }),
       button: new Button({
         label: "Зарегистрироваться",
-        type: "submit"
+        type: "submit",
+        buttonClass: "auth-form__button"
       }),
       title: "Регистрация",
       formClass: "auth-form"

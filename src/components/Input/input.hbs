@@ -1,13 +1,13 @@
-<div>
-  <label class="form__label {{ class }}">
+<div class="input-wrap">
+  <label class="input-wrap__label {{ class }}">
     {{ label }}
   </label>
   <input 
-    name="{{ name }} "
-    class="input {{ inputClass }}" 
-    type="{{ type }} "
-    placeholder="{{ placeholder }} "
+    name="{{ name }}"
+    class="input-wrap__input {{ inputClass }}" 
+    type="{{ type }}"
+    placeholder="{{ placeholder }}"
     value="{{ value }}"
   >
-  <p class="error">{{ message }}</p>
+  <p class="input-error"> {{ message }}</p>
 </div>

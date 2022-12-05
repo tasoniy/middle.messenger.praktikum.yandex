@@ -1,4 +1,30 @@
-.input {
-  outline: none;
-  border:none;
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.input-wrap {
+ @include column;
+ width: 100%;
+
+  &__input {
+    width:100%;
+    @include text(13px, $black);
+    border-bottom: 1px solid $blue;
+  }
+
+  &__input::placeholder {
+    font-size: 9px;
+    opacity: 0.5;
+  }
+
+  &__label {
+    @include text(9px, $darkGrey);
+    margin: 8px 0 4px;
+    align-self: flex-start;
+  }
+  
+  .input-error {
+    @include text(8px, $redColor);
+  }
 }
+
+

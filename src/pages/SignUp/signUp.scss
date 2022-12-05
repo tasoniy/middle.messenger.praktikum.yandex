@@ -3,6 +3,7 @@
 
 .auth-form {
   @include column;
+  min-height: 515px;
   &__input{
     width:100%;
     @include text(13px, $black);
@@ -12,5 +13,17 @@
   &__input::placeholder {
     font-size: 9px;
     opacity: 0.5;
+  }
+
+  &__button {
+    @include blueFill;
+    border-radius: 8px;
+    padding: 12px 70px;
+    margin-top: 40px;
+  }
+
+  &__link {
+    color: $blue;
+    margin-top: 12px;
   }
 }

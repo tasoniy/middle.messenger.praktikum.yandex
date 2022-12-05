@@ -6,10 +6,10 @@
 @import "../components/Input/input.scss";
 
 @import "../pages/SignUp/signUp.scss";
+@import "../pages/SignIn/signIn.scss";
 
-html,
 body {
-  height: 100vh;
+  @include size(100%, 100%);
   @include reset;
   font-family: "Inter", sans-serif;
 }
@@ -25,6 +25,15 @@ ul {
 
 li {
   list-style: none;
+}
+
+h1{
+  @include reset;
+}
+
+input {
+  outline: none;
+  border:none;
 }
 
 .main {
