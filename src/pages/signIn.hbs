@@ -4,8 +4,10 @@ command: "Авторизоваться"
 inputs:
   - label: "Логин"
     type: "text"
+    name: "login"
   - label: "Пароль"
     type: "password"
+    name: "password"
 link-text: "Нет аккаунта?"
 route: "./signUp.hbs"
 ---
@@ -21,4 +23,5 @@ route: "./signUp.hbs"
     {{> link  link-class="form__link"}}
   </div> 
 </form> 
+
 
