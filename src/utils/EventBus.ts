@@ -1,9 +1,14 @@
-class EventBus {
-	private readonly listeners: Record<string,
-		Array<(...args: unknown[]) => void>
-  > = {};
+// interface Events {
+// 	event:[object, object];
+// 	event2: [];
+// 	event3:[number,string, Map<any, any>] 
+// }
 
-	public on(event: string, callback: () => void) {
+class EventBus<Events extends string> {
+	private readonly listeners: Record<string,
+		Array<(...args: unknown[]) => void>> = {};
+
+	public on(event: Events, callback: (...args: any[]) => void) {
 		if (!this.listeners[event]) {
 			this.listeners[event] = [];
 		}
@@ -11,7 +16,7 @@ class EventBus {
 		this.listeners[event].push(callback);
 	}
 
-	public off(event: string, callback: () => void) {
+	public off(event: Events, callback: () => void) {
 		if (!this.listeners[event]) {
 			// throw new Error(`Нет события: ${event}`);
 			return;
@@ -22,7 +27,7 @@ class EventBus {
 		);
 	}
 
-	public emit(event: string, ...args: unknown[]) {
+	public emit(event: Events, ...args: unknown[]) {
 		if (!this.listeners[event]) {
 			// throw new Error(`Нет события: ${event}`);
 			return;
@@ -33,5 +38,4 @@ class EventBus {
 		});
 	}
 }
-
 export default EventBus;
